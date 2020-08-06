@@ -1,0 +1,20 @@
+{
+  "name": "wx_syoa",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.2.0",
+    "vant-weapp": "^0.5.27"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.28.251:8077/wx_syoa.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,86 @@
+/**app.wxss**/
+/* @import "/style/weui.wxss"; */
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'iconfont'; /* project id 1683845 */
+  src: url('//at.alicdn.com/t/font_1683845_ywnzyo78di.eot');
+  src: url('//at.alicdn.com/t/font_1683845_ywnzyo78di.eot?#iefix') format('embedded-opentype'),
+         url('//at.alicdn.com/t/font_1683845_ywnzyo78di.woff2') format('woff2'),
+         url('//at.alicdn.com/t/font_1683845_ywnzyo78di.woff') format('woff'),
+         url('//at.alicdn.com/t/font_1683845_ywnzyo78di.ttf') format('truetype'),
+         url('//at.alicdn.com/t/font_1683845_ywnzyo78di.svg#iconfont') format('svg');
+}
+
+/* 列表通用样式 */
+
+.conts {
+  background: rgba(0, 0, 0, 0.1);
+  height: auto;
+}
+.shenheText{
+border:1rpx solid #ccc;
+width:334px
+}
+
+.rows {
+  display: flex;
+  background: white;
+  height: 100rpx;
+  margin-top: 20rpx;
+  flex-direction: row;
+}
+
+.kuais {
+  height: 10rpx;
+}
+.timekongjian{
+display: flex;
+background: white;
+align-items: center;
+}
+.kaishi{
+  font-size: 27rpx;
+padding-left: 28rpx;
+}
+
+.lefts {
+  flex: 1; /* 重要 */
+  align-items: center;
+  display: flex;
+}
+
+.rights {
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+
+.add_btns {
+  width: 100%;
+  position: fixed;
+  bottom: 30rpx;
+}
+
+.btns {
+  background: #14a1fd;
+  color: #fff;
+  border-radius: 70rpx;
+}
+
+.textconts {
+  padding: 20rpx;
+}
+.form_btn{
+  width: 100%;
+}
+

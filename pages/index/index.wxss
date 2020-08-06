@@ -1,0 +1,146 @@
+.icon {
+  /* width: 50rpx; */
+  width: 20%;
+  text-align: center;
+  padding: 30rpx 18rpx;
+}
+
+.name {
+  font-size: 24rpx;
+  margin-top: 5rpx;
+  text-align: center;
+}
+
+.container {
+  padding: 0rpx 0rpx !important;
+}
+
+.hang {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  margin-bottom: 20rpx;
+}
+
+.newsHang {
+  width: 100%;
+  background: white;
+  /* margin-bottom: 20rpx; */
+}
+
+.iconimg {
+  width: 96rpx !important;
+  height: 96rpx !important;
+
+}
+
+.icongb {
+
+
+  position: relative;
+  left: 11rpx;
+  top: 6rpx;
+
+}
+
+.biaoti2 {
+  left: 5rpx;
+  top: 27rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  background: white;
+  margin-top: 12rpx;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+}
+
+text {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mid {
+  height: 92rpx;
+  font-size: 35rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.logo {
+  position: absolute;
+}
+
+.row {
+  padding: 18rpx;
+  display: flex;
+}
+
+.biaoti {
+  padding-left: 8rpx;
+  width: 78%;
+  overflow: hidden;
+  word-wrap: break-word;
+  font-size: 28rpx;
+}
+
+.neirong {
+  color: rgba(0, 0, 0, 0.6);
+  padding-left: 20rpx;
+  width: 22%;
+  font-size: 24rpx;
+}
+
+.Imgs {
+  width: 32rpx;
+  height: 20rpx;
+  padding-right: 10rpx;
+}
+
+.shadow-layer {
+  width: 100%;
+  height: 100%;
+}
+
+.all {
+  background: #f4f4f4;
+}
+
+.part3 {
+  margin-top: 20rpx;
+}
+
+.biaotilan {
+  background: white;
+  font-size: 30rpx;
+  font-weight: bold;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+}
+
+.username {
+  position: absolute;
+  right: 37rpx;
+  font-size: 25rpx;
+  top: 24rpx;
+  color: white;
+}
+
+#userinfo {
+  min-width: 45rpx;
+  min-height: 45rpx;
+  border-radius: 50%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: white;
+  background: #e70000;
+  left: 99rpx;
+  top: -115rpx;
+  position: relative;
+  padding: 3rpx;
+}
+

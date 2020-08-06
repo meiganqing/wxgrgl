@@ -1,0 +1,102 @@
+<view class="content">
+  <view class="hour">
+      <van-field
+      value="{{ _title }}"
+      label="文件标题"
+      bind:change="_title_change" 
+      placeholder="请输入文件标题"
+      input-align="right"
+    />  
+  </view>
+  <view class="hour">
+    <van-cell title="拟办人" value="{{creator}}" />
+  </view>
+  <view class="hour">
+    <van-cell title="拟办单位" value="{{depart}}" />
+  </view>
+  <view class="hour">
+    <van-cell title="拟办日期" is-link bindtap="nbrq_click" value="{{nbrq}}"/>
+  </view>
+  <view class="time">
+    <view class="time_title">公文种类</view>
+    <van-radio-group value="{{ gw_zl_radio }}" bind:change="gw_zl_click" class="time_radio">
+      <van-radio  class="time_radio_every"  wx:for="{{gw_zl_radio_arr}}" name="{{item}}"> <text>{{item}}</text> </van-radio>
+    </van-radio-group>
+  </view>
+  <view class="time">
+     <view class="time_title">涉密程度</view>
+    <van-radio-group value="{{ gw_smcd_radio }}" bind:change="gw_smcd_click" class="time_radio">
+      <van-radio class="time_radio_everytwo" wx:for="{{gw_smcd_radio_arr}}" name="{{item}}"><text>{{item}}</text></van-radio>
+    </van-radio-group>
+  </view>
+  <view class="hour">
+      <van-field 
+      value="{{bw_zs}}" 
+      label="主送"
+       type="textarea"
+      autosize
+      bind:change="bw_zs_event"/>
+  </view>
+  <view class="hour">
+      <van-field 
+      value="{{bw_cs}}"
+      label="抄送"
+       type="textarea"
+      autosize
+      bind:change="bw_cs_event"/>
+  </view>
+  <view class="hour">
+     <van-field 
+     value="{{bw_cb}}" 
+     label="抄报" 
+      type="textarea"
+      autosize
+     bind:change="bw_cb_event"/>
+  </view>
+  
+  <view class="hour">
+     <van-field value="{{bw_bz}}"
+      label="备注"
+       type="textarea"
+      autosize
+       bind:change="bw_bz_event"/>
+  </view>
+   <view class="hour">
+    <van-cell>
+      <view slot="title">
+        <view class="van-cell-text">附件
+            <van-button type="primary"  bindtap="upload" size="small">上传</van-button>
+        </view>
+      </view>
+    </van-cell>
+    <van-swipe-cell wx:for="{{filearray}}" wx:for-item="items" left-width="{{ 65 }}" right-width="{{ 65 }}">
+      <view slot="left" data-index="{{index}}"  data-rowid="{{items.rowid}}" bindtap="delefile">删除</view>
+        <van-cell-group>
+          <van-cell class="files_name" title="{{items.name}}" data-id="{{items.path}}" bindtap="showfile" value="" />
+        </van-cell-group>
+      <view slot="right" data-id="{{items.path}}" bindtap="showfile">预览</view>
+    </van-swipe-cell>
+  </view>   
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao">提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+<!-- 开始时间选择弹出层 -->
+<van-popup show="{{ nbrq_show }}" position="bottom">
+    <van-datetime-picker
+      type="date"
+      value="{{nbrq_data}}"
+      bind:confirm="nbrq_confirm"
+       bind:cancel="nbrq_cancel"
+    />
+</van-popup>

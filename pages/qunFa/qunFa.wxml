@@ -1,0 +1,81 @@
+<view class="content">
+  <view class="hour">
+    <van-field value="{{onChangemingcheng}}" label="公文名称" input-align="right" required="true" bind:change="gw_event" />
+  </view>
+  <!-- <view class="hour">
+    <van-cell title="部门" is-link bind:click="showDep" required="true" value="{{dep}}" />
+  </view> -->
+  <view class="type">
+    <van-cell title="接收人" is-link bind:click="showRenyuan_true" required="true" value="{{renyuanlist}}" />
+  </view>
+  <view class="time">
+    <van-cell title="发送时间" value="{{timedate}}" required="true" />
+  </view>
+  
+  
+  <view class="hour">
+    <van-field
+    value="{{onChangeneirong}}"
+     label="公文内容"
+      type="textarea"
+      autosize
+    bind:change="gwnr_event"
+       />
+  </view>
+  <view class="hour">
+    <van-cell>
+      <view slot="title">
+        <view class="van-cell-text">公文附件
+            <van-button type="primary"  bindtap="upload" size="small">上传</van-button>
+        </view>
+      </view>
+    </van-cell>
+    <van-swipe-cell wx:for="{{filearray}}" wx:for-item="items" left-width="{{ 65 }}" right-width="{{ 65 }}">
+    
+      <view slot="left" data-index="{{index}}" data-rowid="{{items.rowid}}"  bindtap="delefile">删除</view>
+      <van-cell-group>
+        <van-cell class="files_name" title="{{items.name}}" bind:click="showfile" data-id="{{items.path}}" value="" />
+      </van-cell-group>
+      <view slot="right" data-id="{{items.path}}" bindtap="showfile">预览</view>
+    </van-swipe-cell>
+  </view>
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao">提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+
+<!-- 部门弹出层 -->
+<!-- <van-popup show="{{showDep_type}}" position="bottom" label="">
+  <van-picker columns="{{depxuanze}}"
+   title="请选择部门"
+  bind:confirm="onConfirmDep"
+  bind:cancel="closedep"
+  show-toolbar="true" />
+</van-popup> -->
+
+<!-- 人员弹出层 -->
+<van-popup show="{{showrenyuan}}"  bind:close="showrenyuan_close" position="bottom" label="">
+  <!-- <van-picker columns="{{renyuanxianshi}}"
+    title="请选择人员" 
+    bind:confirm="onConfirmrenyuan"
+    bind:cancel="showrenyuan_false"
+    show-toolbar="true"/> -->
+     <van-tree-select
+    items="{{ sxpeople }}"
+    main-active-index="{{ mainActiveIndex }}"
+    active-id="{{ activeId }}"
+    bind:click-nav="onClickNav"
+    bind:click-item="onClickItem"
+  />
+</van-popup>
+

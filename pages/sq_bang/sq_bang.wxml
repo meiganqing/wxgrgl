@@ -1,0 +1,24 @@
+<view>
+<view class="avatar">
+<open-data type="userAvatarUrl" class="toux"></open-data>
+</view>
+
+<view class="name">
+<open-data type="userNickName"></open-data>
+</view>
+
+<!-- 需要使用 button 来授权登录 -->
+<view class="suresq">
+ <text class="test">授权该用户绑定此系统</text>
+<!-- <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">用户授权</button> -->
+<button class="buttonsure" bindtap="firstdata">用户绑定</button>
+<!-- <button  bindtap="quxiao" class="lhynb">解除绑定</button> -->
+
+<navigator   class="qxbutton"  hover-class="none" target="miniProgram" open-type="exit"> 取消</navigator>
+<!-- <button class="qxbutton" bindtap="quxiao">取消</button> -->
+</view>
+</view>
+
+
+
+ 

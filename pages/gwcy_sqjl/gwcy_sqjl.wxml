@@ -1,0 +1,36 @@
+<view class="back">
+  <view class="cont"
+  wx:for="{{res}}"
+  wx:for-item="item"
+  wx:for-index="idx"
+  wx:key="{{item.id}}"
+  data-id="{{item.id}}">
+    <view class="row">
+    <view class="logo"><view class="userinfo" id="userinfo">{{item.creator}}</view></view>
+      <view class="biaoti">{{item.title}}</view>
+      <view style="" class="time">{{item['添加时间']}}</view>
+    </view>
+    <view class="detail">
+      <view>
+        <text>公文类型:</text>
+        <text>{{item.isInterrupt=="no"?"审核":"传阅"}}</text>
+      </view>
+      <view>
+        <text></text>
+      </view>
+      <view class="shenpi">
+             <text>审核状态:</text>
+        <text >{{item.shzt}}</text>
+      </view>
+    </view>
+
+     <van-dialog id="van-dialog" />
+        <view class="czbtn">
+            <van-button type="default"  bind:click="detailUrl" data-id="{{item.id}}"  data-type="{{item.isInterrupt}}"  size="mini">查看</van-button>
+            <van-button type="info" disabled="{{item.shzt=='待完成'?false:true}}" bind:click="recall_btn" data-xmlcid="{{item.xmlcid}}" data-onlynum="{{item.onlynum}}" size="mini">撤回</van-button>
+            <van-button type="primary" disabled="{{item.shzt=='待提交'?false:true}}" bind:click="edit_btn" data-id="{{item.id}}" size="mini" data-type="{{item.isInterrupt}}">修改</van-button>
+            <van-button type="danger" disabled="{{item.shzt=='待提交'?false:true}}" bind:click="del_btn" data-id="{{item.id}}" size="mini">删除</van-button>
+        </view>
+      <view class="diveline" ></view>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+
+
+
+<view class="content">
+<view class="hour">
+    <van-cell title="姓名" value="{{mUserName}}" />
+</view>
+  <view class="hour">
+    <van-cell title="部门" value="{{depart}}" />
+  </view>
+  <view class="hour">
+    <van-cell title="工作日" value="{{pageParams.dksj}}" />
+  </view>
+    <view class="hour">
+    <van-cell title="补卡时间" value="{{pageParams.gzr}}" />
+  </view>
+
+<view class="hour">
+  <van-cell title="项目名称"  bind:click="showPopup" is-link required="true" value="{{project_name}}  {{project_code}}" />
+</view>
+
+<view class="reason">
+      <van-cell-group>
+        <van-field
+          value="{{ message }}"
+          label="备注"
+          required="true"
+          type="textarea"
+          placeholder=""
+          autosize
+          bind:change="onChangeReason"
+          disable-default-padding="true"
+        />
+    </van-cell-group>
+</view>
+  </view>
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao" >提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+
+<!-- 项目弹出层 -->
+<van-popup show="{{qj_show}}" bind:close="onClose" position="bottom" label="">
+    <van-search 
+    value="{{ project_search }}" 
+    bind:change="project_search_Change"
+    placeholder="请输入查询内容" />
+  <van-picker
+    columns="{{jiaqiarr}}"
+    title="请选择项目"
+    bind:confirm="onConfirm" 
+    bind:cancel="onCancel" 
+    show-toolbar="true" />
+</van-popup>

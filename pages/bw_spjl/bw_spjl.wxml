@@ -1,0 +1,160 @@
+<view class="back">
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{titlt}}</text>
+    </view>
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+    <view class="row">
+      <view class="biaoti">公文标题</view>
+      <view class="neirong">{{rowidData.title}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">公文种类</view>
+      <view class="neirong">{{rowidData.types}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">拟办日期</view>
+      <view class="neirong">{{rowidData.nbrq}}</view>
+    </view>
+        <view class="row">
+      <view class="biaoti">拟办人</view>
+      <view class="neirong">{{rowidData.nbr}}</view>
+    </view>
+        <view class="row">
+      <view class="biaoti">主送</view>
+      <view class="neirong">{{rowidData.sendUnit}}</view>
+    </view>
+        <view class="row">
+      <view class="biaoti">抄送</view>
+      <view class="neirong">{{rowidData.chaosr}}</view>
+    </view>
+        <view class="row">
+      <view class="biaoti">抄报</view>
+      <view class="neirong">{{rowidData.chaobao}}</view>
+    </view>
+        <view class="row">
+      <view class="biaoti">备注</view>
+      <view class="neirong">{{rowidData.remark}}</view>
+    </view>
+        <view class="row">
+      <view class="biaoti">拟办单位</view>
+      <view class="neirong">{{rowidData.nbdw}}</view>
+    </view>
+            <view class="row">
+      <view class="biaoti">发出日期</view>
+      <view class="neirong">{{rowidData.fcrq}}</view>
+    </view>
+            <view class="row">
+      <view class="biaoti">涉密程度</view>
+      <view class="neirong">{{rowidData.secretDegree}}</view>
+    </view>
+
+
+    <view class="row">
+      <view class="biaoti">附件</view>
+ 
+      <!-- 图片轮播图 -->
+      <view class="containerr" wx:if="{{imgshow}}">
+        <!-- <swiper  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"> -->
+        <view wx:for="{{imgarr}}"  wx:for-item="dayItems"  style="display:flex" wx:key>
+          <view wx:for="{{dayItems}}"  wx:for-item="dayItem"  style="display:flex" wx:for-index='key'>
+            <view class="filename">{{key}}</view>
+            <button src="{{dayItem}}" class="slide-image" mode='widthFix' data-src="{{dayItem}}" bindtap='imgYu'>预览</button>
+            
+          </view>
+        </view>
+        <!-- </swiper> -->
+      </view>
+
+    </view>
+
+    <view style="padding-left:20rpx;padding-top: 50rpx">流转意见</view>
+
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="item">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.time}}</text>
+            <text class="course">{{item.dep}}</text>
+            <text class="course">{{item.yijian}}</text>
+
+          </view>
+        </view>
+      
+      </block>
+    </view>
+
+
+
+
+    <!-- <view class="shenpi">
+      <view style="padding-left: 13px;">审核状态</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <view class="bottom">
+        <form bindsubmit='bindFormsubmit'>
+          <view class="zhuangtai">
+            <view style="padding-right: 60rpx;">审核状态</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+              <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+              </label>
+            </radio-group>
+          </view>
+
+          <view wx:if="{{xianyin==false}}" class="tuihui">退回节点
+            <view style="padding-right: 60rpx;">
+
+              <radio-group class="radio-group" bindchange="radioJiedian" style="padding-left: 60rpx;">
+                <label class="radio" wx:for="{{backNode}}" wx:key="key">
+                  <radio class="buka" value="{{item.Lc_xh}}" checked="{{item.checkedtype}}" />{{item.Lc_name}}
+                </label>
+              </radio-group>
+
+
+
+            </view>
+
+          </view>
+
+          <view style="padding-left: 40rpx;padding: 40rpx;">
+            审核意见
+            <view class="wenbenkuang">
+              <textarea class="shenheText" bindconfirm="confirm" placeholder="输入待办事项" auto-focus='true' name="wQPYJ">
+              </textarea>
+            </view>
+
+          </view>
+          <view>
+            <view wx:if="{{xianyin==false}}">
+              <button class="anniu" form-type='submit'>退回</button>
+            </view>
+            <view wx:else>
+              <button class="anniu" form-type='submit'>审核通过</button>
+            </view>
+          </view>
+
+
+
+
+        </form>
+
+
+      </view>
+    </view> -->
+  </view>
+
+</view>

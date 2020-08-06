@@ -1,0 +1,97 @@
+
+<view class="back">
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{titlt}}</text>
+    </view>
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+    <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      direction="vertical"
+      inactive-icon="arrow"
+      />
+    <view class="row">
+      <view class="biaoti">公文标题</view>
+      <view class="neirong">{{rowidData.title}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">发送人</view>
+      <view class="neirong">{{rowidData.creator}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">添加时间</view>
+      <view class="neirong">{{rowidData['添加时间']}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">来文机关</view>
+      <view class="neirong">{{rowidData['来文机关']}}</view>
+    </view>
+      <view class="row">
+      <view class="biaoti">文件字号</view>
+      <view class="neirong">{{rowidData['文件字号']}}</view>
+    </view>
+      <view class="row">
+      <view class="biaoti">收文编号</view>
+      <view class="neirong">{{rowidData['收文编号']}}</view>
+    </view>
+      <view class="row">
+      <view class="biaoti">拟办意见</view>
+      <view class="neirong">{{rowidData['拟办意见']}}</view>
+    </view>
+      <view class="row">
+      <view class="biaoti">公文内容</view>
+      <view class="neirong">{{rowidData['内容']}}</view>
+    </view>
+     <view style="padding-left:20rpx;padding-top: 50rpx">公文附件</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+     <van-swipe-cell wx:for="{{filearray}}" wx:for-item="items" right-width="{{ 65 }}">
+      <van-cell-group>
+        <van-cell class="files_name" title="{{items.name}}" data-id="{{items.path}}" bindtap="showfile" value="" />
+      </van-cell-group>
+      <view slot="right" data-id="{{items.path}}" bindtap="showfile">预览</view>
+    </van-swipe-cell>
+    <view wx:if="{{qyread}}" >
+      <view style="padding-left:20rpx;padding-top: 50rpx">签阅情况</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <van-collapse value="{{ activeNames }}" bind:change="qyqk_Change">
+        <van-collapse-item wx:for="{{qyqk_data}}" wx:key="id" title="{{item['部门']}}" name="{{item.id}}">
+          <van-cell-group>
+            <van-cell title="签批人" value="{{item['人员']}}"/>
+            <van-cell title="回执状态" value="{{item['是否已读']}}"/>
+            <van-cell title="签批时间" value="{{item['已读时间']}}"/>
+            <van-cell title="签批意见" label="{{item['备注']}}"/>
+          </van-cell-group>
+        </van-collapse-item>
+      </van-collapse>
+    </view>
+    <!-- 时间轴 -->
+    <view style="padding-left:20rpx;padding-top: 50rpx">流转意见</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="index">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+          <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.dep}}</text>
+             <text class="course">{{item.tixing_time}}</text>
+            <text class="course">{{item.yijian}}</text> 
+            <text class="course">{{item.time}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

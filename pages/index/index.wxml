@@ -1,0 +1,65 @@
+
+<view class="all">
+<!-- 头部图片 -->
+	<view class="top">
+		<image src="{{logo_top}}" style="height:300rpx;display:flex;width:100%"></image>
+		<view class="username">您好，{{mUserName}}</view>
+	</view>
+  <!-- 智能内外勤 -->
+	<view class="part3">
+    <view class="biaotilan row">
+					<view class="biaoti">	通知公告</view>
+					<view class="neirong"  bindtap="bindViewTap4">更多>>></view>
+		</view>
+		<view class="newsHang"  wx:for="{{tzgg}}" wx:key="index"  bindtap="bindViewTap3" data-id="{{item.id}}">
+				<view class="row" >
+					<view class="biaoti"><image src="{{Imgs}}" class="Imgs" ></image>{{item.ggbt}}</view>
+					<view class="neirong">{{item.tjsj}}</view>
+						<!-- <view class="neirong">{{item.id}}</view> -->
+				</view>
+		</view>
+	<view class="biaoti2">审批</view>
+		<view class="flex-row hang">
+			<view class="icon" wx:for="{{items0}}"  wx:if="{{qx_FW[item.title]}}" wx:key="in"  bindtap="bindViewTap2" data-item="{{item.url}}">
+				<image src="{{item.img}}" class="iconimg"> </image>
+				  <!-- 消息 -->
+				<view class="logo" wx:if="{{item.xiaoxi}}">
+					<view class="userinfo" id="userinfo">
+			   	{{num}}
+					</view>
+				</view>
+				<view class="name">
+					<text></text>
+          <text>{{item.title}}</text>
+				</view>
+			</view>
+		</view>
+	<image src="https://syoa.october3d.com/wx/image/banner.png" style="height:160rpx;width:100%"></image>
+	<view class="biaoti2">办公管理</view>
+		<view class="flex-row hang">
+			<view class="icon" wx:for="{{items2}}"  wx:if="{{qx_FW[item.title]}}" wx:key="in"  bindtap="bindViewTap2" data-item="{{item.url}}">
+				<image src="{{item.img}}" class="iconimg"> </image>
+				<view class="name">
+					<text>{{item.title}}</text>
+				</view>
+			</view>
+		</view>
+		<!-- 通知小喇叭 -->
+	<!-- <view class="mid">
+		<van-icon name="volume" class="icongb" />
+		<text style="padding-left: 20rpx;">考勤规范说明</text>
+	</view> -->
+	<view class="biaotilan">内外勤 </view>
+		<view class="flex-row hang">
+      <!-- 循环每个内容 -->
+			<view class="icon" wx:for="{{items}}"  wx:if="{{qx_FW[item.title]}}"  wx:key="unique"  bindtap="bindViewTap" data-item="{{item.url}}">
+      	<image src="{{item.img}}" class="iconimg"> </image>
+       <!-- 名字 -->
+				<view class="name">
+					<text>{{item.title}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+

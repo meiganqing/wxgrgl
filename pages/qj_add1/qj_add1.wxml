@@ -1,0 +1,68 @@
+<view class="content">
+<view class="hour">
+    <van-cell title="姓名" value="{{creator}}" />
+</view>
+  <view class="hour">
+    <van-cell title="部门" value="{{depart}}" />
+  </view>
+  <view class="type">
+    <van-cell title="请假类型" is-link bind:click="showPopup" required="true" value="{{checkjiaqi}}" />
+  </view>
+  <view class="type">
+    <van-cell title="开始时间" is-link bind:click="showPopupstartTime" required="true" value="{{sDate}}" />
+    <van-cell title="结束时间" is-link bind:click="showPopupendTime" required="true" value="{{eDate}}" />
+    <van-cell title="共计" value="{{days}}" />
+  </view>
+  <view class="reason">
+      <van-cell-group>
+        <van-field
+          value="{{ leaveReason }}"
+          label="请假事由"
+          required="true"
+          type="textarea"
+          placeholder=""
+          autosize
+          bind:change="onChangeReason"
+          disable-default-padding="true"
+        />
+    </van-cell-group>
+  </view>
+  <view class="fotter_top"></view>
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao" >提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+
+<!-- 请假类型弹出层 -->
+<van-popup show="{{qj_show}}" bind:close="onClose" position="bottom" label="">
+  <van-picker columns="{{jiaqiarr}}" title="请假类型" bind:confirm="onConfirm" bind:cancel="onCancel" show-toolbar="true" />
+</van-popup>
+<!-- 开始时间选择弹出层 -->
+<van-popup show="{{ showStart }}"  position="bottom">
+      <van-datetime-picker
+      type="datetime"
+      value="{{sDate_data}}"
+      bind:confirm="confirm_sDate"
+       bind:cancel="cancel_sDate"
+    />
+</van-popup>
+
+<!-- 结束时间选择弹出层 -->
+<van-popup show="{{ showEnd }}" position="bottom">
+    <van-datetime-picker
+            type="datetime"
+            value="{{ eDate_data }}"
+            bind:confirm="confirm_eDate"
+            bind:cancel="cancel_eDate"
+          />
+</van-popup>

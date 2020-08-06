@@ -1,0 +1,67 @@
+<view class="back">
+
+  <!-- 类型 补卡 -->
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{titlt}}</text>
+
+
+    </view>
+
+
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+
+    <view class="row">
+      <view class="biaoti">姓名</view>
+      <view class="neirong">{{rowidData.creator}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">工作日</view>
+      <view class="neirong">{{rowidData.gongzuori}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">补卡时间</view>
+      <view class="neirong">{{rowidData.bukashijian}}</view>
+    </view>
+
+    <view class="row">  
+      <view class="biaoti">申请事由</view>
+      <view class="neirong">{{rowidData.leaveReason}}</view>
+    </view>
+    <view style="padding-left:20rpx;padding-top: 50rpx">流转意见</view>
+
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="item">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.time}}</text>
+            <text class="course">{{item.dep}}</text>
+            <text class="course">{{item.yijian}}</text>
+
+          </view>
+        </view>
+        <ad unit-id="adunit-5abb45645905fc90" wx:if="{{index % 5 == 4}}"></ad>
+      </block>
+    </view>
+
+
+
+
+
+  </view>
+
+</view>

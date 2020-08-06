@@ -1,0 +1,110 @@
+.back {
+  background: rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.cont {
+  background: white;
+  width: 100%;
+  /* height: 270rpx; */
+}
+
+#userinfo {
+  width: 85rpx;
+  height: 85rpx;
+  border-radius: 50%;
+  display: flex;
+  overflow: hidden;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: white;
+  background: #3a7ce6;
+}
+
+.diveline {
+  background: #e0e3da;
+  width: 100%;
+  height: 3rpx;
+  margin-top: 56rpx;
+}
+
+page {
+  height: 100%;
+}
+
+.biaoti {
+  width: 346rpx;
+  text-align: left;
+  padding-left: 33rpx;
+  overflow: hidden;
+  font-size: 33rpx;
+  height: 50rpx;
+}
+
+.logo {
+  padding-left: 20rpx;
+}
+
+.row {
+  display: flex;
+  padding-top: 20rpx;
+}
+
+.detail {
+  display: flex;
+  padding-left: 137rpx;
+  flex-direction: column;
+  padding-top: 20rpx;
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.shenpi {
+  padding-top: 30rpx;
+  color: green;
+}
+
+.time {
+  width: 33%;
+  font-size: 20rpx;
+  text-align: right;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.footers {
+  position: fixed;
+  top: 1100rpx;
+  z-index: 99;
+  width: 100%;
+  height: 400rpx;
+  background: white;
+}
+
+.leftbottom {
+  padding: 10rpx;
+  position: absolute;
+  left: 187rpx;
+}
+
+.fontbottom {
+  /* position: absolute; */
+  position: relative;
+  top: 20rpx;
+  left: -60rpx;
+  font-size: 20rpx;
+}
+
+.img {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.rightbottom {
+  padding: 10rpx;
+  position: absolute;
+  left: 480rpx;
+}

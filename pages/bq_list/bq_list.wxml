@@ -1,0 +1,29 @@
+<view class="back">
+  <view class="cont" bindtap="tiaoUrl2" wx:for="{{arrData}}"  wx:for-index="idx" wx:key="{{index}}" data-gzr="{{item['排班打卡时间']}}"  data-bkzt="{{item['补卡审核状态']}}" data-linkid="{{item['唯一标识']}}">
+    <view class="row">
+      <view class="biaoti">{{item['用户名']}}</view>
+      <view style="" class="time">{{item['排班打卡时间']}}</view>
+    </view>
+    <view class="detail">
+      <view>
+        <text >考勤类型:</text>
+        <text>{{item['考勤类型']}}</text>
+      </view>
+      <view>
+        <text>工作日:</text>
+        <text>{{item['工作日']}}</text>
+      </view>
+      <view>
+        <text>打卡结果:</text>
+        <text>{{item['打卡结果']}}</text>
+      </view>
+      <view class="shenpi">
+        <text>补卡申请状态:</text>
+        <text >{{item['补卡审核状态']}}</text>
+      </view>
+    </view>
+      <!-- <view class="diveline" ></view> -->
+  </view>
+
+  </view>
+  

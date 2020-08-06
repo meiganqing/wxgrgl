@@ -1,0 +1,12 @@
+ <view class="container">
+ 	<view class="login-icon">
+ 		<image class="login-img" src="https://syoa.october3d.com/wx/image/loginTop.png" style="height:300rpx"></image>
+
+ 	</view>
+ 	<image class="loginLogo-img" src="https://syoa.october3d.com/wx/image/loginLogo.png"></image>
+
+ 	<view class=" sqlogin">
+ 		<button class="buttonsure" bindtap="loginbutton">确认登录</button>
+ 		<navigator class="qxbutton" hover-class="none" target="miniProgram" open-type="exit"> 取消</navigator>
+ 	</view>
+ </view>

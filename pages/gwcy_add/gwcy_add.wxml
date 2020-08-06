@@ -1,0 +1,80 @@
+<view class="content">
+  <view class="hour">
+    <van-field value="{{echodata.title}}" label="公文标题"  bind:change="titleChange" input-align="right" required="true"/>
+  </view>
+  <view class="time">
+    <van-field value="{{echodata['添加时间']}}"  label="添加时间" readonly="true" input-align="right"/>
+  </view>
+  <view class="hour">
+    <van-field value="{{echodata['来文机关']}}" label="来文机关" bind:change="gwjg" input-align="right"/>
+  </view>
+  <view class="hour">
+    <van-field value="{{echodata['文件字号']}}"  label="文件字号" bind:change="wjzh"  input-align="right"/>
+  </view>
+  <view class="hour">
+    <van-field value="{{echodata['收文编号']}}" label="收文编号" bind:change="swbh" input-align="right"/>
+  </view>
+  <view class="type">
+    <van-cell title="接收人" is-link bind:click="showRenyuan_true" required="true" value="{{renyuanlist}}" />
+  </view>
+  <view class="hour">
+    <van-field
+    value="{{echodata['拟办意见']}}"
+     label="拟办意见"
+      type="textarea"
+      autosize
+      bind:change="nbyj"
+       />
+  </view>
+  <view class="hour">
+    <van-field
+    value="{{echodata['内容']}}"
+    label="公文内容"
+    type="textarea"
+     bind:change="gwnr"
+    autosize
+     />
+  </view>
+  <view class="hour">
+    <van-cell>
+      <view slot="title">
+        <view class="van-cell-text">公文附件
+            <van-button type="primary"  bindtap="upload" size="small">上传</van-button>
+        </view>
+      </view>
+    </van-cell>
+    <van-swipe-cell wx:for="{{filearray}}" wx:for-item="items" left-width="{{ 65 }}" right-width="{{ 65 }}">
+    
+      <view slot="left" data-index="{{index}}" data-rowid="{{items.rowid}}"  bindtap="delefile">删除</view>
+      <van-cell-group>
+        <van-cell class="files_name" title="{{items.name}}" bind:click="showfile" data-id="{{items.path}}" value="" />
+      </van-cell-group>
+      <view slot="right" data-id="{{items.path}}" bindtap="showfile">预览</view>
+    </van-swipe-cell>
+  </view>
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large"  bindtap="submitTijiao">提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+
+<!-- 人员弹出层 -->
+<van-popup show="{{showrenyuan}}"  bind:close="showrenyuan_close" position="bottom" label="">
+  <van-tree-select
+    items="{{ sxpeople }}"
+    main-active-index="{{ mainActiveIndex }}"
+    active-id="{{ activeId }}"
+    bind:click-nav="onClickNav"
+    bind:click-item="onClickItem"
+  />
+</van-popup>
+

@@ -1,0 +1,72 @@
+<view class="back">
+  <!-- 类型 请假 -->
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{titlt}}</text>
+    </view>
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+    <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      direction="vertical"
+      inactive-icon="arrow"
+      />
+
+    <view class="row">
+      <view class="biaoti">姓名</view>
+      <view class="neirong">{{rowidData.creator}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">部门</view>
+      <view class="neirong">{{rowidData.depart}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">申请类型</view>
+      <view class="neirong">{{rowidData.leaveType}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">开始时间</view>
+      <view class="neirong">{{rowidData.startTime}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">结束时间</view>
+      <view class="neirong">{{rowidData.endTime}}</view>
+    </view>
+     <view class="row">
+      <view class="biaoti">时长</view>
+      <view class="neirong">{{rowidData.leavenum}}小时</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">申请事由</view>
+      <view class="neirong">{{rowidData.leaveReason}}</view>
+    </view>
+    <view style="padding-left:20rpx;padding-top: 50rpx">流转意见</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="index">
+        <view class="playlog-item">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.time}}</text>
+            <text class="course">{{item.dep}}</text>
+            <text class="course">{{item.yijian}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+</view>

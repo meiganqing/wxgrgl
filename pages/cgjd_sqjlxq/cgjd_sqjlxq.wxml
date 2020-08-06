@@ -1,0 +1,80 @@
+<view class="back">
+
+  <!-- 类型 出差 -->
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{rowidData.title}}</text>
+    </view>
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+    <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      inactive-icon="arrow"
+        direction="vertical"
+      />
+    <view class="row">
+      <view class="biaoti">到访时间</view>
+      <view class="neirong">{{ rowidData.visitTime }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">到访人员</view>
+      <view class="neirong">{{ rowidData.nameList }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">到访单位</view>
+      <view class="neirong">{{ rowidData.visitingUnit }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">到访人数</view>
+      <view class="neirong">{{ rowidData.visitingpeo }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">陪同人员</view>
+      <view class="neirong">{{ rowidData.entourage }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">参观内容</view>
+      <view class="neirong">{{ rowidData.visitContent }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">备注</view>
+      <view class="neirong">{{ rowidData.remark }}</view>
+    </view>
+   
+    <view style="padding-left:20rpx;padding-top: 50rpx">流转意见</view>
+
+    <view class="diveline" style="margin-top:20rpx"></view>
+
+
+
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="item">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.dep}}</text>
+            <text class="course">{{item.tixing_time}}</text>
+            <text class="course">{{item.yijian}}</text> 
+            <text class="course">{{item.time}}</text>
+          </view>
+        </view>
+    
+      </block>
+    </view>
+
+  </view>
+
+</view>

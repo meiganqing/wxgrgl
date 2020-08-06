@@ -1,0 +1,98 @@
+<view class="back">
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{titlt}}</text>
+    </view>
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+    <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      direction="vertical"
+      inactive-icon="arrow"
+      />
+    <view class="row">
+      <view class="biaoti">申请时间</view>
+      <view class="neirong">{{rowidData.sqTime}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">用途</view>
+      <view class="neirong">{{rowidData.yongtu}}</view>
+    </view>
+    <view style="padding-left:26rpx;padding-top: 50rpx">领用图书</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+     <van-swipe-cell wx:for="{{ts_lyarr}}" wx:for-item="items">
+      <van-cell-group>
+        <van-cell class="files_name" title="{{items.book_name}}"  value="×{{items.book_num}}" />
+      </van-cell-group>
+    </van-swipe-cell>
+
+    <view style="padding-left:26rpx;padding-top: 50rpx">流转意见</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="item">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.time}}</text>
+            <text class="course">{{item.dep}}</text>
+            <text class="course">{{item.yijian}}</text>
+          </view>
+        </view>
+        <!-- <ad unit-id="adunit-5abb45645905fc90" wx:if="{{index % 5 == 4}}"></ad> -->
+      </block>
+    </view>
+    <view class="shenpi">
+      <view style="padding-left: 13px;">审核状态</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <view class="bottom">
+        <form bindsubmit='bindFormsubmit'>
+          <view class="zhuangtai">
+            <view style="padding-right: 60rpx;">审核状态</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+              <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+              </label>
+            </radio-group>
+          </view>
+          <view wx:if="{{xianyin==false}}" class="tuihui">退回节点
+            <view style="padding-right: 60rpx;">
+              <radio-group class="radio-group" bindchange="radioJiedian" style="padding-left: 60rpx;">
+                <label class="radio" wx:for="{{backNode}}" wx:key="key">
+                  <radio class="buka" value="{{item.Lc_xh}}" checked="{{item.checkedtype}}" />{{item.Lc_name}}
+                </label>
+              </radio-group>
+            </view>
+          </view>
+          <view style="padding-left: 40rpx;">
+            审核意见
+            <view class="wenbenkuang">
+              <textarea class="shenheText" bindconfirm="confirm" placeholder="请输入审核意见" name="wQPYJ">
+              </textarea>
+            </view>
+          </view>
+          <view>
+            <view wx:if="{{xianyin==false}}">
+              <button class="anniu" form-type='submit'>退回</button>
+            </view>
+            <view wx:else>
+              <button class="anniu" form-type='submit'>审核通过</button>
+            </view>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>

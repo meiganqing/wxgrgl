@@ -1,0 +1,193 @@
+<view class="back">
+  <view class="cont">
+    <view class="name">
+      <text style="font-size:50rpx;text-align:center">{{xm.module}}</text>
+    </view>
+    <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      inactive-icon="arrow"
+        direction="vertical"
+      />
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+    <view style="text-align:center;background:#f7f7f7;font-size:34rpx;text-align:center;padding:10rpx;">
+      <text>项目基本信息</text>
+    </view>
+    <view class="row">
+      <view class="biaoti">项目名称</view>
+      <view class="neirong">{{xm.xmmc}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">项目类型</view>
+      <view class="neirong">{{xm.xmlx}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">项目编号</view>
+      <view class="neirong">{{xm.xmbh}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">立项年度</view>
+      <view class="neirong">{{xm.year}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">立项时间</view>
+      <view class="neirong">{{xm.lxsj}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">项目组</view>
+      <view class="neirong">{{xm.xmgroup}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">执照号</view>
+      <view class="neirong">{{xm.dig_license}}</view>
+    </view>
+
+    <view style="text-align:center;background:#f7f7f7;font-size:34rpx;text-align:center;padding:10rpx;">
+      <text>工作内容</text>
+    </view>
+    <view class="row">
+      <view class="biaoti">调查长度</view>
+      <view class="neirong">{{xm.survey_length}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">调查面积</view>
+      <view class="neirong">{{xm.excavate_site_area}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">其他</view>
+      <view class="neirong">{{xm.other}}</view>
+    </view>
+
+  <view style="text-align:center;background:#f7f7f7;font-size:34rpx;text-align:center;padding:10rpx;">
+      <text>位置信息</text>
+  </view>
+    
+    <view class="row">
+      <view class="biaoti">工作地点</view>
+      <view class="neirong">{{xm.WorkPlace}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">详细地址</view>
+      <view class="neirong">{{xm.adddetails}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">经度</view>
+      <view class="neirong">{{xm.logitude}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">纬度</view>
+      <view class="neirong">{{xm.latitude}}</view>
+    </view>
+  
+     <view style="text-align:center;background:#f7f7f7;font-size:34rpx;text-align:center;padding:10rpx;">
+      <text>时间信息</text>
+    </view>
+    
+    <view class="row">
+      <view class="biaoti">计划开始时间</view>
+      <view class="neirong">{{xm.StartTime}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">计划结束日期</view>
+      <view class="neirong">{{xm.EndTime}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">计划项目周期</view>
+      <view class="neirong">{{xm.xmzq}}</view>
+    </view>
+
+
+     <view style="text-align:center;background:#f7f7f7;font-size:34rpx;text-align:center;padding:10rpx;">
+      <text>人员信息</text>
+    </view>
+<view style="border: 2rpx solid gray;margin: 2px;"  wx:for="{{tzggData}}"  wx:for-index="idx" wx:key="{{index}}">
+     <view class="row">
+        <view class="renyuan">部门名/单位名:</view>
+        <view class="neirong">{{item['部门名']}}</view>
+      </view>
+        <view class="row">
+        <view class="smrenyuan">用户名:</view>
+        <view class="smname">{{item['用户名']}}</view>
+         <view class="smrenyuan">职务:</view>
+        <view class="smname">{{item['职务']}}</view>
+      </view>
+      <view class="row">
+        <view class="smrenyuan">职务职责:</view>
+        <view class="smname">{{item['职务职责']}}</view>
+      </view>
+  </view>
+
+    <view class="row">
+      <view class="biaoti">备注</view>
+      <view class="neirong">{{xm.remark}}</view>
+    </view>
+
+    <view style="padding-left:26rpx;padding-top: 50rpx">流转意见</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="item" wx:for-item="svip">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{svip.biaoti}}</text>
+            <text class="course">{{svip.name}}</text>
+            <text class="course">{{svip.time}}</text>
+            <text class="course">{{item.dep}}</text>
+            <text class="course">{{svip.yijian}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="shenpi">
+      <view style="padding-left: 13px;">审核状态</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <view class="bottom">
+        <form bindsubmit='bindFormsubmit'>
+          <view class="zhuangtai">
+            <view style="padding-right: 60rpx;">审核状态</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+              <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+              </label>
+            </radio-group>
+          </view>
+          <view wx:if="{{xianyin==false}}" class="tuihui" >退回节点
+            <view style="padding-right: 60rpx;" >
+            <radio-group class="radio-group" bindchange="radioJiedian" style="padding-left: 60rpx;" >
+              <label class="radio" wx:for="{{nameArr}}">
+                <radio  class="buka" value="{{index}}" checked="" />{{item}}
+              </label>
+                <label class="radio" >
+                <radio  class="buka" value="{{lastXh}}" checked="checkeds" data-targetJD="{{lastXh}}" />{{lastName}}
+              </label>
+            </radio-group>
+     </view>         
+          </view>
+          <view style="padding-left: 40rpx;" >
+            审核意见
+            <view class="wenbenkuang">
+                <textarea class="shenheText" bindconfirm="confirm"  placeholder="输入待办事项" auto-focus='true' name="textarea" >
+            </textarea>
+            </view>
+          </view>
+          <view >
+            <view wx:if="{{xianyin==false}}">
+                <button class="anniu"  form-type='submit' >退回</button>
+            </view>
+            <view wx:else >
+               <button  class="anniu" form-type='submit'>审核通过</button>
+            </view>
+        </view>
+        </form>
+      </view>
+    </view>
+       </view> 
+  </view>

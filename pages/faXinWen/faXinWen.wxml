@@ -1,0 +1,100 @@
+<view class="content">
+	<view class="hour">
+		<van-field value="{{ _title }}" label="标题" bind:change="title_change" placeholder="请输入标题" input-align="right" />
+	</view>
+	<view class="hour">
+		<van-cell title="投稿人" value="{{creator}}" />
+	</view>
+	<view class="hour">
+		<van-cell title="投稿方向" value="{{tg_fx_name}}" is-link required="true" bindtap="tg_fx_click" />
+	</view>
+	<view class="time">
+		<van-cell title="投稿时间" is-link value="{{sDate}}" required="true" bindtap="tg_time_click" />
+	</view>
+
+	<view class="hour containers">
+		<!-- <van-field 
+    value="{{news_nr}}" 
+    label="内容" 
+    type="textarea"
+    autosize
+    bind:change="xwnr_event" /> -->
+		<view style="padding: 10px 15px;font-size: 14px;line-height: 24px;">内容:</view>
+		<scroll-view scroll-y="true" style="height: {{winHeight}}rpx;">
+			<!-- 根据需要设置滚动条 -->
+			<view class="hour containers" style="height:{{editorHeight}}px;">
+				<editor 
+				id="editor"
+				label="内容" 
+				type="textarea" 
+				autosize 
+				bindinput="xwnr_event" 
+				class="ql-containers" 
+				bindstatuschange="onStatusChange"
+				bindready="onEditorReady"
+				>
+				</editor>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="toolbar" catchtouchend="format" >
+	  <i class="iconfont icon-charutupian" catchtouchend="insertImage"></i>
+		<i bindtap="testss" class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
+		<i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
+		<i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+		<i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+		<i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
+		<i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
+		<i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
+		<i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
+	</view>
+	<view class="hour" style="margin-bottom:120rpx;">
+		<van-cell>
+			<view slot="title">
+				<view class="van-cell-text">附件
+					<van-button type="primary" bindtap="upload" size="small">上传</van-button>
+				</view>
+			</view>
+		</van-cell>
+		<van-swipe-cell wx:for="{{filearray}}" wx:for-item="items" left-width="{{ 65 }}" right-width="{{ 65 }}">
+			<view slot="left" data-index="{{index}}" data-rowid="{{items.rowid}}" bindtap="delefile">删除</view>
+			<van-cell-group>
+				<van-cell class="files_name" title="{{items.name}}" data-id="{{items.path}}" bindtap="showfile" value="" />
+			</van-cell-group>
+			<view slot="right" data-id="{{items.path}}" bindtap="showfile">预览</view>
+		</van-swipe-cell>
+	</view>
+	<view class="fotter">
+		<van-row>
+			<van-col class="leftbian" span="4" bindtap="tiaoUrl">
+				<view class="icontop">
+					<van-icon name="bars" color="rgb(25, 137, 250)" />
+				</view>
+				<view class="fontbottom">查看记录</view>
+			</van-col>
+			<van-col class="" span="20">
+				<van-button type="info" size="large" bindtap="submitTijiao">提交</van-button>
+			</van-col>
+		</van-row>
+	</view>
+</view>
+
+<!-- 投稿方向弹出层 -->
+<van-popup show="{{tg_fx_show}}" bind:close="tg_fx_cancel" position="bottom" label="">
+	<!-- <van-picker columns="{{tg_fx_arr}}" 
+  title="投稿方向" 
+  bind:confirm="tg_fx_confirm" 
+  bind:cancel="tg_fx_cancel"
+   show-toolbar="true" /> -->
+	<van-checkbox-group value="{{ tg_fx_name }}" bind:change="tg_fx_confirm">
+		<van-cell-group>
+			<van-cell wx:for="{{ tg_fx_arr }}" wx:key="index" title="{{ item }}" value-class="value-class" clickable data-index="{{ index }}" bind:click="toggle">
+				<van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item }}" />
+			</van-cell>
+		</van-cell-group>
+	</van-checkbox-group>
+</van-popup>
+<!-- 投稿时间弹出层 -->
+<van-popup show="{{ showStart }}" position="bottom">
+	<van-datetime-picker type="date" value="{{sDate_data}}" bind:confirm="confirm_sDate" bind:cancel="cancel_sDate" />
+</van-popup>

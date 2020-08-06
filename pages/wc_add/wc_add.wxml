@@ -1,0 +1,90 @@
+<view class="content">
+  <view class="hour">
+    <van-cell title="姓名" value="{{creator}}" />
+  </view>
+  <view class="hour">
+    <van-cell title="部门" value="{{depart}}" />
+  </view>
+  <view class="type">
+    <van-cell title="申请类别" value="外出" />
+  </view>
+  <view class="type">
+    <van-cell title="申请时间" is-link bind:click="showPopupstartTime" required="true" value="{{sptime}}" />
+  </view>
+  <van-radio-group value="{{ radio }}">
+    <van-cell-group>
+      <van-cell
+        title="上午"
+        clickable
+        data-name="上午"
+        data-stime=" 07:00:00"
+        data-etime=" 13:00:00"
+        data-numtime="4"
+        bind:click="onClickdan"
+      >
+      
+      <van-radio slot="right-icon" name="上午" />
+      </van-cell>
+      <van-cell
+        title="下午"
+        clickable
+        data-name="下午"
+        data-stime=" 13:00:00"
+        data-etime=" 19:00:00"
+        data-numtime="4"
+        bind:click="onClickdan"
+      >
+        <van-radio slot="right-icon" name="下午" />
+      </van-cell>
+        <van-cell
+        title="全天"
+        clickable
+        data-name="全天"
+        data-stime=" 07:00:00"
+        data-etime=" 19:00:00"
+        data-numtime="8"
+        bind:click="onClickdan"
+      >
+        <van-radio slot="right-icon" name="全天" />
+      </van-cell>
+    </van-cell-group>
+  </van-radio-group>
+
+  <view class="reason">
+        <van-field
+          value="{{ leaveReason }}"
+          label="申请事由"
+          required="true"
+          type="textarea"
+          placeholder=""
+          autosize
+          bind:change="onChangeReason"
+          disable-default-padding="true"
+        />
+  </view>
+  <view class="fotter_top"></view>
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao" >提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+
+<!-- 申请时间 -->
+<van-popup show="{{showStart}}" position="bottom">
+     <van-datetime-picker
+      type="date"
+      value="{{sptime_data}}"
+      bind:confirm="confirm_sDate"
+       bind:cancel="cancel_sDate"
+    />
+</van-popup>
+

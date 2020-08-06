@@ -1,0 +1,116 @@
+<view class="content">
+  <view class="hour">
+    <van-field value="{{onChangemingcheng}}" label="公文名称" input-align="right" bind:change="onChangemingcheng" />
+  </view>
+
+  <view class="hour">
+    <van-cell title="部门" is-link bind:click="showDep" required="true" value="{{dep}}" />
+  </view>
+
+  <view class="type">
+    <van-cell title="选择人员" is-link bind:click="showRenyuan" required="true" value="{{renyuan}}" />
+  </view>
+
+  <view class="type">
+    <van-cell title="接收人" is-link required="true" value="{{jieshouren}}" />
+  </view>
+
+  <!-- <view class="type">
+    <van-cell title="交通工具" is-link bind:click="showPopup" required="true" value="{{jiaotongArr}}" />
+  </view> -->
+  <view class="hour">
+    <van-field value="{{onChangeneirong}}" label="公文内容" bind:change="onChangeneirong" input-align="right" />
+  </view>
+
+  <view class="time">
+    <van-cell title="发送时间" is-link value="{{date}}" required="true" bindtap="showPopupstartTime" />
+
+  </view>
+
+
+
+  <view class="rows">
+    <view class="leftFont">公文附件</view>
+    <view class="btn">
+      <button bindtap="upload">选择</button>
+    </view>
+  </view>
+  <view class="diveline"></view>
+  <view class="rows">
+    <view class="leftFont">选择文件名</view>
+    <view class="btn">操作</view>
+  </view>
+  <view class="diveline"></view>
+
+
+
+  <view class="rows" wx:for="{{fileArray}}">
+    <view class="leftFont">{{item}}</view>
+    <view>
+      <button>删除</button>
+    </view>
+
+  </view>
+
+
+
+
+
+
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao">提交</van-button>
+      </van-col>
+
+    </van-row>
+
+  </view>
+</view>
+<!-- 地区弹出层 -->
+
+
+
+<van-popup show="{{showarea}}" position="top" custom-style="height: 40%;" style="z-index: 10000000">
+  <picker mode="region" bindchange='changeZone' value='{{region}}'>
+    {{zonePick}}
+  </picker>
+</van-popup>
+
+
+<!-- 人员弹出层 -->
+
+<van-popup show="{{showrenyuan}}" bind:close="onClose" position="bottom" label="">
+  <van-picker columns="{{renyuanxianshi}}"  title="请选择人员" bind:change="onChangerenyuan" bind:confirm="onConfirmrenyuan" bind:cancel="onCancel" show-toolbar="true" data-renyuanArr="{{renyuanArr}}" />
+</van-popup>
+
+
+<!-- 类型弹出层 -->
+
+<van-popup show="{{showleixing}}" bind:close="onClose" position="bottom" label="">
+  <van-picker columns="{{cctype}}" title="出差类型" bind:change="onChangeleixing" bind:confirm="onConfirmleixing" bind:cancel="onCancel" show-toolbar="true" />
+
+</van-popup>
+
+<!-- 部门弹出层 -->
+
+<van-popup show="{{showDep}}" bind:close="onClose" position="bottom" label="">
+  <van-picker columns="{{depxuanze}}" title="请选择部门" bind:change="onChangeDep" bind:confirm="onConfirmDep" bind:cancel="onCancel" show-toolbar="true" />
+
+</van-popup>
+<!-- 开始时间选择弹出层 -->
+<van-popup show="{{ showStart }}" bind:close="onCloseStart" position="bottom">
+  <pickerYMDHM placeholder="{{placeholder}}" date="{{date}}" disabled="{{disabled}}" bind:onPickerChange="onPickerChange" startDate="{{startDate}}" endDate="{{endDate}}" bindsure="confirmStart" ShowPicker="false">
+  </pickerYMDHM>
+</van-popup>
+<!-- 结束时间选择弹出层 -->
+<van-popup show="{{ showEnd }}" bind:close="onCloseEnd" position="bottom">
+  <pickerYMDHM placeholder="{{placeholder1}}" date="{{date1}}" disabled="{{disabled1}}" bind:onPickerChange="onPickerChange1" startDate="{{startDate1}}" endDate="{{endDate1}}" bindsure="confirmTime">
+  </pickerYMDHM>
+</van-popup>

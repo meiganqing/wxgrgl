@@ -1,0 +1,87 @@
+/* pages/qj_add1/qj_add1.wxss */
+
+.content {
+  background: rgba(247, 247, 247);  
+  height: 100%;
+  width: 100%;
+  padding-bottom: 6rpx;
+    padding-top: 20rpx;
+}
+
+page {
+  height: 100%;
+
+
+}
+
+.type {
+  margin-top: 20rpx;
+}
+
+.time {
+  margin-top: 30rpx;
+}
+
+.hour {
+  margin-top: 30rpx;
+}
+
+.reason {
+  margin-top: 30rpx;
+}
+
+.shenpi {
+  margin-top: 30rpx;
+}
+
+.chaosong {
+  margin-top: 30rpx;
+}
+
+.fotter {
+  height: 92rpx;
+  background: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0rpx;
+}
+
+.rightbian {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icontop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fontbottom {
+  display: flex;
+  font-size: 20rpx;
+  align-items: center;
+  justify-content: center;
+  color:rgb(25, 137, 250)
+}
+
+.shenpi {
+  background: white;
+  height: 200rpx;
+}
+
+.addicon {
+  position: absolute;
+  left: 30rpx;
+}
+
+.reason {
+  height: 200rpx;
+  background: white;
+}
+
+.chaosong {
+  height: 200rpx;
+  background: white;
+}

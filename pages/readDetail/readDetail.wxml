@@ -1,0 +1,74 @@
+<!--pages/detail/detail.wxml-->
+<view>
+  <view class="cont">
+    <!-- 请假类型 -->
+    <view class="type">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="one">
+        <view class="pickers">
+          <view style="float:left">请假类型</view>
+          <view class="righttet"> {{array[index]}}</view>
+        </view>
+      </picker>
+    </view>
+
+    <view class="yue">事假余额</view>
+    <!-- 开始时间 -->
+    <view class="time">
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="qi">
+
+        <view class="timeStart" style="width:100%">开始时间
+          <input value='{{time}}' class="rightbian" placeholder='选择时间' />
+        </view>
+      </picker>
+
+    </view>
+
+    <view class="diveline"></view>
+    <!-- 结束时间 -->
+    <view class="time">
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="qi">
+
+        <view class="timeStart" style="width:100%">结束时间
+          <input value='{{time}}' class="rightbian" placeholder='选择时间' />
+        </view>
+      </picker>
+
+    </view>
+    <view class="diveline"></view>
+    <view class="times">时长（小时）
+      <input placeholder='请输入时长' type="number" class="rightbian"></input>
+    </view>
+    <view class="diveline"></view>
+    <view class="smallfont">时长将自动计入考勤统计</view>
+  </view>
+     <view class="divelines"></view>
+  <view class="center">
+    <text class="thing">请假事由</text>
+    <textarea></textarea>
+  </view>
+      <view class="divelines"></view>
+  <view class="imgboxs">
+  <view>
+    图片</view>
+
+  <view class="img_box">
+    <view class="imgs" wx:for="{{tempFilePaths}}" wx:key="index">
+      <image src='{{item}}' bindlongpress="deleteImage" bindtap="listenerButtonPreviewImage" data-index="{{index}}" mode='widthFix' />
+    </view>
+    <view class="imgs">
+      <view class="images" bindtap="upload">
+        <image src='/img/qiandao.png' mode='widthFix' />
+      </view>
+    </view>
+
+  </view>
+     <view class="divelines"></view>
+  </view>
+
+  <view class='add_btn'>
+    <button class='btn'>
+        提交
+    </button>
+</view>
+
+</view>

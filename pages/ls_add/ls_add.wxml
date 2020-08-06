@@ -1,0 +1,96 @@
+
+<view class="content">
+  <view class="hour">
+    <van-cell title="申请人" value="{{creator}}" />
+  </view>
+  <view class="time">
+      <van-cell title="申请时间" value="{{sDate}}"/>
+  </view>
+  <view class="reason">
+      <van-cell-group>
+        <van-field
+          value="{{ leaveReason }}"
+          label="用途"
+          required="true"
+          type="textarea"
+          placeholder=""
+          autosize
+          bind:change="onChangeReason"
+          disable-default-padding="true"
+        />
+    </van-cell-group>
+  </view>
+  <view class="hour">
+    <van-cell>
+      <view slot="title">
+        <view class="van-cell-text">添加图书
+            <van-button type="primary"  bindtap="addbook" size="small">添加图书</van-button>
+        </view>
+      </view>
+    </van-cell>
+    <van-swipe-cell wx:for="{{ts_lyarr}}" wx:for-item="items" right-width="{{ 65 }}">
+      <van-cell-group>
+        <van-cell class="files_name" title="{{items.book_name}}"  value="×{{items.book_num}}" />
+      </van-cell-group>
+        <view slot="right" data-index="{{index}}" bindtap="del_book">删除</view>
+    </van-swipe-cell>
+  </view>    
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao">提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+<!-- 添加图书 -->
+<van-popup show="{{tg_fx_show}}" bind:close="tg_fx_cancel"  custom-style="height: 45%" position="bottom" label="">
+  <!-- <van-checkbox-group value="{{ tg_fx_name }}" bind:change="tg_fx_confirm">
+    <van-cell-group>
+      <van-cell
+        wx:for="{{ tg_fx_arr }}"
+        wx:key="index"
+        title="{{ item.name }}"
+        value-class="value-class"
+        clickable
+        data-index="{{ index }}"
+        bind:click="toggle"
+      >
+      <van-checkbox
+        catch:tap="noop"
+        class="checkboxes-{{ index }}"
+        name="{{ item.name }}"
+      />
+      </van-cell>
+    </van-cell-group>
+  </van-checkbox-group> -->
+  <view class="searchtem">
+    <van-search 
+    value="{{ project_search }}" 
+    bind:change="project_search_Change"
+    placeholder="请输入查询内容" />
+  
+    <view class="bookcard">
+      <van-card
+      wx:for="{{ tg_fx_arr }}"
+      wx:key="{{ index }}"
+      price="{{ item.book_price }}"
+      desc="库存 {{ item.book_storeNum }}  {{ item.book_publisher }}"
+      title="{{ item.book_name }}"
+      num="{{ item.book_num }}"
+      >
+      <view slot="footer">
+        <van-button data-id="{{index}}" bind:click="add_num" size="mini">增加</van-button>
+        <van-button data-id="{{index}}" bind:click="reduce_num" size="mini">减少</van-button>
+        <van-button data-id="{{index}}" bind:click="confirm_book" type="primary" size="mini">确定</van-button>
+      </view>
+      </van-card>
+    </view>
+  </view>
+</van-popup>

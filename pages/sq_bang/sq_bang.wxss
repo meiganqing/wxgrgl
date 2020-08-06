@@ -1,0 +1,49 @@
+
+
+.avatar{
+  margin: auto;
+  overflow: hidden;
+  display: block;  
+  width: 30%;  
+  height: 30%;  
+  margin-top: 20%;  
+  border-radius: 50%;  
+}
+
+.name{
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+.test{
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom:10%;
+  text-align: center;
+}
+.suresq{
+  width: 50%;
+  margin:auto;
+}
+.buttonsure{
+  background-color: green;
+  color: white;
+}
+/* 取消按钮 */
+.qxbutton{
+  border: 2px solid #eee;
+  text-align: center;
+  margin-top: 10%;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+
+/* 解除绑定 */
+.lhynb{
+margin-top: 5%;
+background-color: #38A1FD;
+color: white;
+
+}

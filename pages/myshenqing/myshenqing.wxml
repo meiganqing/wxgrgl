@@ -1,0 +1,44 @@
+<view class="content">
+ <view class="type">
+    <van-cell title="内外勤管理"  style="text-align:center; font-size:40rpx" />
+  </view>
+  <view class="type">
+    <van-cell title="出差申请列表" is-link bind:click="chuchai"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="请假申请列表" is-link bind:click="qingjia"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="补签申请列表" is-link  bind:click="buqian"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="调休申请列表" is-link bind:click="tiaoxiu"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="加班申请列表" is-link bind:click="jiaban"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="外出申请列表" is-link bind:click="waichu"  value="" />
+  </view>
+
+ <view class="type">
+    <van-cell title="办公管理"  style="text-align:center; font-size:40rpx" />
+  </view>
+
+     <view class="type">
+    <van-cell title="公文申请列表" is-link  bind:click="gongwen"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="参观接待申请列表" is-link bind:click="canguan"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="报文申请列表" is-link bind:click="baowen"  value="" />
+  </view>
+    <view class="type">
+    <van-cell title="发新闻申请列表" is-link bind:click="faxinwen"  value="" />
+  </view>
+  <view class="type">
+    <van-cell title="领书申请列表" is-link bind:click="lingshu"  value="" />
+  </view>
+</view>
+

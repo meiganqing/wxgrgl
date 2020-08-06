@@ -1,0 +1,284 @@
+/* pages/chuchaiDetail/chuchaiDetail.wxss */
+
+.back {
+  background: rgba(0, 0, 0, 0.1);
+  height: 100%;
+  font-size: 30rpx;
+}
+
+.tuihui{
+  padding: 40rpx;
+display: flex;
+
+}
+.wenbenkuang{
+  margin-top: 10px;
+}
+.step{
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  margin-bottom: 16rpx;
+  padding-bottom: 20rpx;
+}
+/* progress */
+.progress{
+  width:70%;
+  height: 60rpx;
+  /* margin:auto; */
+  position: relative;
+  display: -webkit-flex;
+  align-items: center;
+}
+.progress .pro_border{
+  width:100%;
+}
+.step_box{
+  position: absolute;
+  top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: -30px;
+}
+.pro_border{
+  height: 4rpx;
+}
+.progress .radius{
+  /* position: absolute; */
+  width:40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #E0E2E7;
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #737586;
+  text-align:center;
+  /* top:0; */
+}
+.progress .radius_active{
+  background: #F86221;
+  color:#fff;
+}
+.step_box1{
+  left:0;
+}
+.step_box2{
+  left:50%;
+}
+.step_box3{
+  right:0;
+  margin-right: -30px;
+}
+.step_title{
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.name {
+  height: 80rpx;
+  text-align: center;
+  background: white;
+}
+
+.center {
+  height: 300rpx;
+  background: white;
+}
+.passimg{
+width: 150rpx;
+height: 150rpx;
+position: fixed;
+right: 0;
+top: 0rpx;
+
+}
+.bottom{
+  display: flex;
+}
+.titname{
+  text-align: center;
+}
+.cont {
+  height: flex;
+  background: white;
+  padding-top: 30rpx;
+  
+}
+
+.shenpi{
+  background: white;
+  padding-top: 50rpx
+}
+.diveline {
+  background: #e0e3da;
+  width: 100%;
+  height: 3rpx;
+}
+
+.biaoti {
+  color: rgba(0, 0, 0, 0.6);
+  padding-left: 20rpx;
+  min-width: 25%;
+}
+.neirong {
+  padding-left: 30rpx;
+  width: 70%;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+.zhuangtai{
+  display: flex;
+padding: 40rpx;
+
+}
+.anniu{
+  width: 250rpx;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+
+.row {
+  padding: 10rpx;
+  display: flex;
+}
+
+.kuai {
+  height: 50rpx;
+  align-items: center;
+  background: white;
+  padding-left: 38rpx;
+}
+
+.chang {
+  height: 100%;
+  width: 690rpx;
+  background: rgba(0, 0, 0, 0.1);
+  align-items: center;
+  display: flex;
+}
+page {
+ background: #fff;
+}
+
+.top-root {
+ display: flex;
+ flex-wrap: nowrap;
+ flex-direction: row;
+}
+
+.img-root {
+ height: 40px;
+ width: 40px;
+ margin: 5px;
+}
+
+.img {
+ width: 100%;
+ height: 100%;
+}
+
+.top-desc-root {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+}
+
+.xiangqing {
+ font-size: 28rpx;
+ color: #000;
+}
+
+/*时间轴*/
+
+/*外部容器*/
+.listview-container {
+    margin: 10rpx 10rpx;
+}
+
+/*行样式*/
+.playlog-item {
+    display: flex;
+}
+
+/*时间轴*/
+.playlog-item .dotline {
+    width: 35px;
+    position: relative;
+}
+
+/*竖线*/
+.playlog-item .dotline .line {
+    width: 1px;
+    height: 90%;
+    background: #ccc;
+    position: absolute;
+    top: 0;
+    left: 15px; 
+}
+
+/*圆点*/
+.playlog-item .dotline .dot {
+    width: 11px;
+    height: 11px; 
+    background: #30ac63;
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    border-radius: 50%; 
+}
+
+/*时间戳*/
+.playlog-item .dotline .time {
+    width: 100%;
+    position: absolute;
+    margin-top: 30px;
+    z-index: 99;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+/*右侧主体内容*/
+.playlog-item .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ddd;
+  margin: 3px 0;
+}
+/*章节部分*/
+.playlog-item .content .chapter {
+  font-size: 30rpx;
+  line-height: 68rpx;
+  color: #444;
+  white-space: normal;
+  padding-right: 10px;
+}
+
+/*课程部分*/
+.playlog-item .content .course {
+  font-size: 28rpx;
+  line-height: 56rpx;
+  color: #999;
+}
+.renyuan{
+  width: 50%;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.smrenyuan{
+  width: 24%;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.smrenyuan2{
+  width: 29%;
+  color: rgba(0, 0, 0, 0.6);
+}
+.smname{
+  width: 24%;
+}

@@ -1,0 +1,135 @@
+<view class="back">
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{titlt}}</text>
+    </view>
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+     <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      inactive-icon="arrow"
+       direction="vertical"
+      />
+    <view class="row">
+      <view class="biaoti">姓名</view>
+      <view class="neirong">{{ rowidData.creator }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">部门</view>
+      <view class="neirong">{{ rowidData.depart }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">出差类型</view>
+      <view class="neirong">{{ rowidData.type }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">出差人员</view>
+      <view class="neirong">{{ rowidData.ccry }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">交通工具</view>
+      <view class="neirong">{{ rowidData.coMedia }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">经费来源</view>
+      <view class="neirong">{{ rowidData.jingfei }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">项目名称</view>
+      <view class="neirong">{{ rowidData.xmmc }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">项目编号</view>
+      <view class="neirong">{{ rowidData.xmbh }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">出发城市</view>
+      <view class="neirong">{{ rowidData.cfcs }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">目的城市</view>
+      <view class="neirong">{{ rowidData.mdcs }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">开始日期</view>
+      <view class="neirong">{{ rowidData.sTime }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">结束日期</view>
+      <view class="neirong">{{ rowidData.eTime }}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">出差事由</view>
+      <view class="neirong">{{ rowidData.reason }}</view>
+    </view>
+    <view style="padding-left:26rpx;padding-top: 50rpx">流转意见</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="item">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.time}}</text>
+            <text class="course">{{item.dep}}</text>
+            <text class="course">{{item.yijian}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="shenpi">
+      <view style="padding-left: 13px;">审核状态</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <view class="bottom">
+        <form bindsubmit='bindFormsubmit' class="form_btn">
+          <view class="zhuangtai">
+            <view style="padding-right: 60rpx;">审核状态</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+              <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+              </label>
+            </radio-group>
+          </view>
+
+          <view wx:if="{{xianyin==false}}" class="tuihui">退回节点
+            <view style="padding-right: 60rpx;">
+
+              <radio-group class="radio-group" bindchange="radioJiedian" style="padding-left: 60rpx;">
+                <label class="radio" wx:for="{{backNode}}" wx:key="key">
+                  <radio class="buka" value="{{item.Lc_xh}}" checked="{{item.checkedtype}}" />{{item.Lc_name}}
+                </label>
+              </radio-group>
+            </view>
+          </view>
+          <view style="padding-left: 40rpx;">
+            审核意见
+            <view class="wenbenkuang">
+              <textarea class="shenheText" bindconfirm="confirm" placeholder="输入待办事项" auto-focus='true' name="wQPYJ">
+              </textarea>
+            </view>
+          </view>
+          <view>
+            <view wx:if="{{xianyin==false}}">
+              <button class="anniu" form-type='submit'>退回</button>
+            </view>
+            <view wx:else>
+              <button class="anniu" form-type='submit'>审核通过</button>
+            </view>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>

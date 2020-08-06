@@ -1,0 +1,147 @@
+<view class="content">
+<!-- 到访时间 -->
+    <view class="type">
+       <van-cell title="申请时间" is-link bind:click="showPopupstartTime" required="true" value="{{visitTime}}" />
+    </view>
+<!-- 标题 -->
+
+    <view  class="type">
+       <van-cell title="标题" value="{{biaoti}}" />
+    </view>
+<!-- 到访单位 -->
+  <view class="type">
+        <!-- <van-cell-group> -->
+        <van-field
+          value="{{ visitingUnit }}"
+          label="到访人员单位"
+          required="true"
+          type="text"
+          placeholder="请输入到访人员单位"
+          autosize
+          bind:change="onChangedfdw"
+          disable-default-padding="true"
+        />
+    <!-- </van-cell-group> -->
+  </view>
+<!-- 到访人员 -->
+
+  <view  class="type">
+        <van-cell-group>
+        <van-field  
+          value="{{ nameList }}"
+          label="到访人员名单"
+          required="true"
+          type="textarea"
+          placeholder="多个人员请用“,”分隔"
+          autosize
+          bind:change="onChangedfry"
+          disable-default-padding="true"
+        />
+    </van-cell-group>
+  </view>
+<!-- 到访人数 -->
+
+  <view class="type">
+       <van-cell-group>
+        <van-field 
+          value="{{ visitingpeo }}"
+          label="到访人数"
+          required="true"
+          type="number"
+          placeholder="请输入到访人数"
+          bind:change="onChangedfrs"
+          disable-default-padding="true"
+        />
+   </van-cell-group>
+  </view>
+
+<!--是由 -->
+     <view class="type">
+        <van-cell-group>
+        <van-field
+          value="{{ reason }}"
+          label="事由"
+          required="true"
+          type="textarea"
+          placeholder=
+          autosize
+          bind:change="onChangedfsy"
+          disable-default-padding="true"
+        />
+    </van-cell-group>
+  </view>
+    <view class="type">
+    <van-cell title="陪同人员" is-link bind:click="traffic_event" required="true" value="{{entourage}}"  />
+  </view>
+      <view class="type">
+    <van-cell title="参观内容" is-link bind:click="Add_event" required="true" value="{{visitContent}}" />
+  </view>
+   <view class="reason">
+        <van-cell-group>
+        <van-field
+          value="{{ remark }}"
+          label="备注"
+          required="true"
+          type="textarea"
+          placeholder=
+          autosize
+          bind:change="onChangebeizhu"
+          disable-default-padding="true"
+        />
+    </van-cell-group>
+  </view>
+
+
+
+
+  <view class="fotter">
+    <van-row>
+      <van-col class="leftbian" span="4" bindtap="tiaoUrl">
+        <view class="icontop">
+          <van-icon name="bars" color="rgb(25, 137, 250)" />
+        </view>
+        <view class="fontbottom">查看记录</view>
+      </van-col>
+      <van-col class="" span="20">
+        <van-button type="info" size="large" bindtap="submitTijiao" >提交</van-button>
+      </van-col>
+    </van-row>
+  </view>
+    </view>
+
+    <!-- 申请时间 -->
+<van-popup show="{{showStart}}" position="bottom">
+     <van-datetime-picker
+      type="datetime"
+      value="{{sptime_data}}"
+      bind:confirm="confirm_sDate"
+       bind:cancel="cancel_sDate"
+    />
+</van-popup>
+
+
+
+<!-- 人员弹框 -->
+<van-popup show="{{traffic_show}}" bind:close="showrenyuan_close" position="bottom" label="">
+  <!-- <van-picker columns="{{jiaotongArr}}"  
+  title="请选择陪同人员"
+  bind:confirm="traffic_confirm" 
+  bind:cancel="traffic_cancel"
+  show-toolbar="true" /> -->
+   <van-tree-select
+    items="{{ sxpeople }}"
+    main-active-index="{{ mainActiveIndex }}"
+    active-id="{{ activeId }}"
+    bind:click-nav="onClickNav"
+    bind:click-item="onClickItem"
+  />
+</van-popup>
+
+<!-- 参观地点 -->
+<van-popup show="{{Add_show}}" position="bottom" label="">
+  <van-picker columns="{{cgaddArr}}"  
+  title="请选择参观地点"
+  bind:confirm="Add_confirm" 
+  bind:cancel="Add_cancel"
+  show-toolbar="true" />
+</van-popup>

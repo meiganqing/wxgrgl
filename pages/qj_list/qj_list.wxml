@@ -1,0 +1,42 @@
+<view class="back">
+  <view class="cont" bindtap="detailUrl" wx:for="{{res}}" wx:for-item="item" wx:for-index="idx" wx:key="{{index}}" data-id="{{item.id}}" data-xmlcid="{{item.xmlcid}}" data-onlynum="{{item.onlynum}}" data-module="{{item.module}}" data-url="{{item.url}}" >
+    <view class="row">
+    <view class="logo"><view class="userinfo" id="userinfo">{{item.sendPerson}}</view></view>
+      <view class="biaoti">{{item.theme}}</view>
+      <view style="" class="time">{{item.sendTime}}</view>
+    </view>
+
+
+    <view class="detail">
+      <view>
+        <text>发送人:</text>
+        <text>{{item.sendPerson}}</text>
+      </view>
+      <view>
+        <text></text>
+        <!-- <text>{{item.sendTime}}</text> -->
+      </view>
+      <!-- <view>
+        <text>交通工具:</text>
+        <text>飞机</text>
+      </view> --> 
+      <view class="shenpi">
+             <text>审批编号:</text>
+        <text >{{item.onlynum}}</text>
+      </view>
+    </view>
+      <view class="diveline" ></view>
+  </view>
+
+
+
+  </view><view class="footers">
+<!-- <view class="leftbottom" bindtap="tiaoUrl">
+<image src="/img/qiandao.png" class="img"></image>
+<text class="fontbottom">申请请假</text>
+</view>
+<view class="rightbottom" bindtap="tiaoUrl2">
+<image src="/img/qiandao.png" class="img"></image>
+<text class="fontbottom">请假记录</text>
+</view> -->
+</view>

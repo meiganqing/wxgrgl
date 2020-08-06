@@ -1,0 +1,9 @@
+var strUniarr = function (str, num) {
+  // console.log(str)
+  // console.log(num)
+  // console.log(str.split(" ")[num])
+  return str.split(" ")[num]
+
+}
+
+module.exports.strUniarr = strUniarr

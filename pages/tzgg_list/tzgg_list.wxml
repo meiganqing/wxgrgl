@@ -1,0 +1,16 @@
+<view class="back">
+<view class="cont" bindtap="tiaoUrl" wx:for="{{tzggData}}"  wx:for-index="idx" wx:key="{{index}}"   data-id="{{item.id}}">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{item.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;">{{item.ggbt}}</text>
+    </view>
+     <view class="row">
+      <view class="biaoti">发布时间:</view>
+      <view class="neirong">{{item.tjsj}}</view>
+        </view>
+  <view class="diveline"></view>
+  </view>
+  </view>
+  

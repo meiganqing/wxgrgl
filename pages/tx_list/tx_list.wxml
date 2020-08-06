@@ -1,0 +1,34 @@
+<view class="back">
+<view class="cont" bindtap="tiaoUrl" wx:for="{{txData}}"  wx:for-index="idx" wx:key="{{index}}"   data-rowid="{{item['id']}}"  data-gzr="{{item['leavenum']}}"  data-txstyle="{{item['txstyle']}}">
+    <view class="row">
+      <view class="biaoti">{{item.creator}}</view>
+      <view style="" class="time">{{item.fqsj}}</view>
+    </view>
+
+
+    <view class="detail">
+      <view>
+        <text>所在部门:</text>
+        <text>{{item.depart}}</text>
+      </view>
+      <view>
+        <text>申请类型:</text>
+        <text>{{item.leaveType}}</text>
+      </view>
+      <view>
+        <text>可申请时长:</text>
+        <text>{{item.leavenum}}</text> 
+      </view>
+    
+      
+      <view class="shenpi">
+        <text >调休状态：</text>
+          <text>{{item.txstyle}}</text> 
+      </view>
+    </view>
+  </view>
+  <view class="diveline"></view>
+
+
+  </view>
+  
